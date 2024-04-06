@@ -60,6 +60,50 @@ model = AutoModelForImageClassification.from_pretrained("rajistics/finetuned-ind
 def main():
     session_state = st.session_state
 
+    # Apply pink theme and background color to the entire page
+    st.markdown(
+        """
+        <style>
+        body {
+            background-color: #fce4ec; /* Set background color to a light pink */
+            color: #880e4f; /* Set text color to a dark pink */
+        }
+
+        .stButton>button {
+            background-color: #ff4081; /* Set button background color to pink */
+            color: white; /* Set button text color to white */
+        }
+
+        .stButton>button:hover {
+            background-color: #f50057; /* Set button background color on hover */
+        }
+
+        .stTextInput>div>div>input {
+            background-color: #f8bbd0; /* Set text input background color to light pink */
+            color: #880e4f; /* Set text input text color to dark pink */
+        }
+
+        .stTextInput>div>div>input:focus {
+            border-color: #f50057; /* Set text input border color on focus */
+        }
+
+        .stTextArea>div>div>textarea {
+            background-color: #f8bbd0; /* Set text area background color to light pink */
+            color: #880e4f; /* Set text area text color to dark pink */
+        }
+
+        .stTextArea>div>div>textarea:focus {
+            border-color: #f50057; /* Set text area border color on focus */
+        }
+
+        .stMarkdown {
+            color: #880e4f; /* Set markdown text color to dark pink */
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
     st.title("Happieebitees - Sweetness in Every Byte, Hapieebitees' with Sugar-Free Delight.")
 
     # Display the logo with adjusted size
@@ -143,7 +187,12 @@ def main():
                 "Mocha": {"price": 130, "calories": 90},
                 "Americano": {"price": 90, "calories": 10},
             },
-            "Brownies": {
+            "Sweets": {
+                "Jalebi": {"price": 300, "calories": 250},
+                "Kulfi": {"price": 180, "calories": 150},
+            },
+
+        "Brownies": {
                 "Classic Brownie": {"price": 100, "calories": 200},
                 "Walnut Brownie": {"price": 120, "calories": 220},
                 "Blondie": {"price": 110, "calories": 210},
@@ -280,10 +329,6 @@ def main():
 
         # Display the prediction
         st.success(f"Predicted class: {predicted_class}")
-
-    # Dropdown to select food category
-    selected_category = st.selectbox('These categories are available ', food_categories)
-    st.write('You selected:', selected_category)
 
         # Food Recommendation Bot
     st.markdown("---")
